@@ -1,0 +1,20 @@
+{
+  "name": "전북 AI Work Campus",
+  "short_name": "AI Work Campus",
+  "start_url": "/jbba-ai-pages/",
+  "display": "standalone",
+  "background_color": "#f6fafc",
+  "theme_color": "#0e2a47",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
