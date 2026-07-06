@@ -1,0 +1,1242 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>전북 AI Work Campus | AI 실무 활용 특강</title>
+    <link rel="icon" type="image/png" href="../cardnews/assets/jbba-logo.png" />
+    <meta
+      name="description"
+      content="전북경제통상진흥원 AI 실무 활용 특강 랜딩페이지. 공고문, 상담, 수출, 판로, 일자리, 사회적경제 업무에 바로 붙는 AI 활용법을 소개합니다."
+    />
+    <style>
+      :root {
+        --navy: #0e2a47;
+        --navy-deep: #071d34;
+        --navy-soft: #16385a;
+        --mint: #16c79a;
+        --teal: #0d9488;
+        --blue: #2563eb;
+        --ink: #14283a;
+        --muted: #607286;
+        --line: #dce8ef;
+        --paper: #f6fafc;
+        --white: #ffffff;
+        --shadow: 0 24px 70px rgba(7, 29, 52, 0.16);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Apple SD Gothic Neo", "Pretendard", "Noto Sans KR",
+          system-ui, sans-serif;
+        color: var(--ink);
+        background: var(--paper);
+        letter-spacing: 0;
+      }
+
+      body::selection {
+        background: rgba(22, 199, 154, 0.28);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .site-shell {
+        overflow: clip;
+      }
+
+      .topbar {
+        position: fixed;
+        z-index: 20;
+        top: 18px;
+        left: 50%;
+        width: min(1120px, calc(100% - 32px));
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 13px 16px;
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.86);
+        box-shadow: 0 18px 46px rgba(7, 29, 52, 0.16);
+        backdrop-filter: blur(18px);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 0;
+      }
+
+      .brand img {
+        width: 234px;
+        height: auto;
+      }
+
+      .brand-line {
+        width: 1px;
+        height: 30px;
+        background: var(--line);
+      }
+
+      .brand-label {
+        color: var(--navy);
+        font-size: 14px;
+        font-weight: 800;
+        white-space: nowrap;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .nav a {
+        padding: 10px 12px;
+        border-radius: 999px;
+        color: #28455d;
+        font-size: 14px;
+        font-weight: 800;
+      }
+
+      .nav a:hover,
+      .nav a:focus-visible {
+        background: rgba(14, 42, 71, 0.08);
+        outline: none;
+      }
+
+      .nav .nav-cta {
+        margin-left: 4px;
+        color: var(--navy);
+        background: var(--mint);
+      }
+
+      .hero {
+        position: relative;
+        min-height: 90svh;
+        display: grid;
+        align-items: center;
+        padding: 124px 0 54px;
+        color: var(--white);
+        background: var(--navy-deep);
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: linear-gradient(
+            90deg,
+            rgba(5, 22, 39, 0.96) 0%,
+            rgba(8, 30, 52, 0.88) 36%,
+            rgba(8, 30, 52, 0.42) 68%,
+            rgba(8, 30, 52, 0.18) 100%
+          ),
+          url("../cardnews/assets/cover-ai-coworker.png");
+        background-size: cover;
+        background-position: center;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0;
+        height: 180px;
+        background: linear-gradient(
+          180deg,
+          rgba(246, 250, 252, 0) 0%,
+          rgba(246, 250, 252, 0.96) 100%
+        );
+      }
+
+      .wrap {
+        position: relative;
+        z-index: 1;
+        width: min(1120px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .hero-content {
+        width: min(760px, 100%);
+        padding-top: 34px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 16px;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 999px;
+        color: rgba(255, 255, 255, 0.88);
+        background: rgba(255, 255, 255, 0.08);
+        font-size: 14px;
+        font-weight: 900;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--mint);
+        box-shadow: 0 0 0 6px rgba(22, 199, 154, 0.16);
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        margin-top: 28px;
+        font-size: clamp(48px, 8vw, 96px);
+        line-height: 0.96;
+        font-weight: 900;
+        word-break: keep-all;
+      }
+
+      .hero-lead {
+        margin-top: 28px;
+        max-width: 680px;
+        color: rgba(255, 255, 255, 0.86);
+        font-size: clamp(20px, 2.2vw, 28px);
+        line-height: 1.45;
+        font-weight: 760;
+        word-break: keep-all;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 34px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 52px;
+        padding: 0 22px;
+        border: 1px solid rgba(255, 255, 255, 0.26);
+        border-radius: 999px;
+        font-size: 16px;
+        font-weight: 900;
+        transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+      }
+
+      .button:hover,
+      .button:focus-visible {
+        transform: translateY(-2px);
+        outline: none;
+      }
+
+      .button.primary {
+        border-color: var(--mint);
+        color: var(--navy);
+        background: var(--mint);
+      }
+
+      .button.secondary {
+        color: var(--white);
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .hero-metrics {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+        width: min(920px, 100%);
+        margin-top: 52px;
+      }
+
+      .metric {
+        padding: 18px 18px 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.28);
+      }
+
+      .metric strong {
+        display: block;
+        color: var(--mint);
+        font-size: 30px;
+        line-height: 1;
+        font-weight: 950;
+      }
+
+      .metric span {
+        display: block;
+        margin-top: 8px;
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 15px;
+        font-weight: 760;
+      }
+
+      .next-hint {
+        position: absolute;
+        z-index: 3;
+        left: 50%;
+        bottom: 22px;
+        transform: translateX(-50%);
+        color: rgba(14, 42, 71, 0.72);
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      section {
+        position: relative;
+        padding: 96px 0;
+      }
+
+      .section-head {
+        display: grid;
+        grid-template-columns: minmax(0, 0.88fr) minmax(280px, 0.62fr);
+        gap: 48px;
+        align-items: end;
+        margin-bottom: 44px;
+      }
+
+      .kicker {
+        color: var(--teal);
+        font-size: 15px;
+        font-weight: 950;
+        letter-spacing: 0;
+      }
+
+      h2 {
+        margin-top: 14px;
+        color: var(--navy);
+        font-size: clamp(36px, 4.2vw, 62px);
+        line-height: 1.04;
+        font-weight: 950;
+        word-break: keep-all;
+      }
+
+      .section-copy {
+        color: var(--muted);
+        font-size: 19px;
+        line-height: 1.62;
+        font-weight: 720;
+        word-break: keep-all;
+      }
+
+      .promise-band {
+        background: var(--paper);
+      }
+
+      .promise-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .promise {
+        min-height: 260px;
+        padding: 28px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--white);
+        box-shadow: 0 16px 34px rgba(14, 42, 71, 0.07);
+      }
+
+      .promise .num {
+        color: var(--mint);
+        font-size: 14px;
+        font-weight: 950;
+      }
+
+      .promise h3 {
+        margin-top: 42px;
+        color: var(--navy);
+        font-size: 27px;
+        line-height: 1.14;
+        font-weight: 950;
+        word-break: keep-all;
+      }
+
+      .promise p {
+        margin-top: 16px;
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.55;
+        font-weight: 700;
+        word-break: keep-all;
+      }
+
+      .campus-band {
+        color: var(--white);
+        background: var(--navy);
+      }
+
+      .campus-band h2,
+      .campus-band .kicker {
+        color: var(--white);
+      }
+
+      .campus-band .section-copy {
+        color: rgba(255, 255, 255, 0.74);
+      }
+
+      .campus-map {
+        display: grid;
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: 34px;
+        align-items: stretch;
+      }
+
+      .campus-visual {
+        min-height: 630px;
+        border-radius: 8px;
+        overflow: hidden;
+        background-image: linear-gradient(
+            180deg,
+            rgba(7, 29, 52, 0.12),
+            rgba(7, 29, 52, 0.72)
+          ),
+          url("../cardnews/assets/case-10-prompt.png");
+        background-size: cover;
+        background-position: center;
+        box-shadow: var(--shadow);
+      }
+
+      .pathway {
+        display: grid;
+        gap: 14px;
+      }
+
+      .station {
+        display: grid;
+        grid-template-columns: 76px minmax(0, 1fr);
+        gap: 18px;
+        align-items: center;
+        padding: 22px 24px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .station strong {
+        display: grid;
+        place-items: center;
+        width: 58px;
+        height: 58px;
+        border-radius: 50%;
+        color: var(--navy);
+        background: var(--mint);
+        font-size: 20px;
+        font-weight: 950;
+      }
+
+      .station h3 {
+        color: var(--white);
+        font-size: 24px;
+        line-height: 1.18;
+        font-weight: 950;
+        word-break: keep-all;
+      }
+
+      .station p {
+        margin-top: 6px;
+        color: rgba(255, 255, 255, 0.74);
+        font-size: 16px;
+        line-height: 1.5;
+        font-weight: 680;
+        word-break: keep-all;
+      }
+
+      .work-band {
+        background: var(--white);
+      }
+
+      .work-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 26px;
+      }
+
+      .tab-button {
+        min-height: 44px;
+        padding: 0 16px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: #31536b;
+        background: var(--white);
+        font: inherit;
+        font-size: 15px;
+        font-weight: 900;
+        cursor: pointer;
+      }
+
+      .tab-button[aria-selected="true"] {
+        border-color: var(--navy);
+        color: var(--white);
+        background: var(--navy);
+      }
+
+      .work-stage {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+        gap: 36px;
+        align-items: center;
+      }
+
+      .work-copy h3 {
+        color: var(--navy);
+        font-size: clamp(34px, 4vw, 58px);
+        line-height: 1.04;
+        font-weight: 950;
+        word-break: keep-all;
+      }
+
+      .work-copy p {
+        margin-top: 22px;
+        color: var(--muted);
+        font-size: 20px;
+        line-height: 1.58;
+        font-weight: 720;
+        word-break: keep-all;
+      }
+
+      .work-copy .prompt {
+        margin-top: 28px;
+        padding: 22px 24px;
+        border-left: 6px solid var(--mint);
+        color: var(--ink);
+        background: #edf8f5;
+        font-size: 18px;
+        line-height: 1.5;
+        font-weight: 820;
+        word-break: keep-all;
+      }
+
+      .work-image {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        background: var(--paper);
+      }
+
+      .work-image img {
+        width: 100%;
+        aspect-ratio: 1.15 / 1;
+        object-fit: cover;
+      }
+
+      .effect-band {
+        background: #eaf5f6;
+      }
+
+      .effect-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .effect {
+        min-height: 292px;
+        padding: 30px;
+        border-radius: 8px;
+        color: var(--white);
+        background: var(--navy);
+      }
+
+      .effect:nth-child(2) {
+        background: var(--teal);
+      }
+
+      .effect:nth-child(3) {
+        background: var(--navy-soft);
+      }
+
+      .effect span {
+        color: rgba(255, 255, 255, 0.74);
+        font-size: 14px;
+        font-weight: 950;
+      }
+
+      .effect h3 {
+        margin-top: 44px;
+        font-size: 32px;
+        line-height: 1.12;
+        font-weight: 950;
+        word-break: keep-all;
+      }
+
+      .effect p {
+        margin-top: 16px;
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 17px;
+        line-height: 1.52;
+        font-weight: 720;
+        word-break: keep-all;
+      }
+
+      .proof-band {
+        background: var(--paper);
+      }
+
+      .proof-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(320px, 0.54fr);
+        gap: 34px;
+        align-items: center;
+      }
+
+      .proof-gallery {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .proof-gallery img {
+        border-radius: 8px;
+        box-shadow: 0 15px 34px rgba(14, 42, 71, 0.11);
+      }
+
+      .proof-copy {
+        padding: 34px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--white);
+      }
+
+      .proof-copy h3 {
+        color: var(--navy);
+        font-size: 32px;
+        line-height: 1.16;
+        font-weight: 950;
+        word-break: keep-all;
+      }
+
+      .proof-copy p {
+        margin-top: 18px;
+        color: var(--muted);
+        font-size: 18px;
+        line-height: 1.58;
+        font-weight: 720;
+        word-break: keep-all;
+      }
+
+      .download-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 26px;
+      }
+
+      .download-row a {
+        padding: 13px 16px;
+        border-radius: 999px;
+        color: var(--navy);
+        background: #e7f5f1;
+        font-size: 14px;
+        font-weight: 950;
+      }
+
+      .cta-band {
+        padding-bottom: 110px;
+        color: var(--white);
+        background: var(--navy-deep);
+      }
+
+      .cta-panel {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.58fr);
+        gap: 40px;
+        align-items: center;
+        padding: 56px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 8px;
+        background-image: linear-gradient(
+            90deg,
+            rgba(7, 29, 52, 0.94),
+            rgba(7, 29, 52, 0.7)
+          ),
+          url("../cardnews/assets/case-02-startup.png");
+        background-size: cover;
+        background-position: center;
+      }
+
+      .cta-panel h2 {
+        color: var(--white);
+      }
+
+      .cta-panel p {
+        margin-top: 20px;
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 20px;
+        line-height: 1.56;
+        font-weight: 720;
+        word-break: keep-all;
+      }
+
+      .cta-list {
+        display: grid;
+        gap: 12px;
+      }
+
+      .cta-list div {
+        padding: 18px 20px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.86);
+        font-size: 16px;
+        line-height: 1.45;
+        font-weight: 820;
+        word-break: keep-all;
+      }
+
+      footer {
+        padding: 32px 0;
+        color: #6e7d8d;
+        background: #061b31;
+      }
+
+      .footer-inner {
+        width: min(1120px, calc(100% - 40px));
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        font-size: 14px;
+        font-weight: 760;
+      }
+
+      @media (max-width: 920px) {
+        .topbar {
+          position: absolute;
+          top: 14px;
+          align-items: flex-start;
+        }
+
+        .brand img {
+          width: 202px;
+        }
+
+        .brand-line,
+        .brand-label,
+        .nav a:not(.nav-cta) {
+          display: none;
+        }
+
+        .hero {
+          min-height: 92svh;
+          padding-top: 118px;
+        }
+
+        .hero::before {
+          background-image: linear-gradient(
+              180deg,
+              rgba(5, 22, 39, 0.94) 0%,
+              rgba(8, 30, 52, 0.82) 56%,
+              rgba(8, 30, 52, 0.44) 100%
+            ),
+            url("../cardnews/assets/cover-ai-coworker.png");
+          background-position: center bottom;
+        }
+
+        .hero-metrics,
+        .promise-grid,
+        .effect-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .section-head,
+        .campus-map,
+        .work-stage,
+        .proof-layout,
+        .cta-panel {
+          grid-template-columns: 1fr;
+        }
+
+        .campus-visual {
+          min-height: 360px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .topbar {
+          width: calc(100% - 20px);
+          padding: 10px;
+          border-radius: 18px;
+        }
+
+        .brand img {
+          width: 172px;
+        }
+
+        .nav .nav-cta {
+          padding: 9px 11px;
+          font-size: 12px;
+        }
+
+        .wrap,
+        .footer-inner {
+          width: min(100% - 28px, 1120px);
+        }
+
+        .hero {
+          min-height: 92svh;
+          padding-bottom: 62px;
+        }
+
+        h1 {
+          font-size: clamp(42px, 12vw, 56px);
+        }
+
+        .hero-lead {
+          font-size: 19px;
+        }
+
+        .promise-grid,
+        .effect-grid,
+        .proof-gallery {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-metrics {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 8px;
+          margin-top: 28px;
+        }
+
+        .metric {
+          padding: 10px 8px 12px;
+        }
+
+        .metric strong {
+          font-size: 25px;
+        }
+
+        .metric span {
+          margin-top: 5px;
+          font-size: 12px;
+          line-height: 1.35;
+        }
+
+        section {
+          padding: 72px 0;
+        }
+
+        .station {
+          grid-template-columns: 58px minmax(0, 1fr);
+          padding: 18px;
+        }
+
+        .station strong {
+          width: 46px;
+          height: 46px;
+          font-size: 16px;
+        }
+
+        .work-tabs {
+          overflow-x: auto;
+          flex-wrap: nowrap;
+          padding-bottom: 8px;
+        }
+
+        .tab-button {
+          white-space: nowrap;
+        }
+
+        .cta-panel {
+          padding: 30px 22px;
+        }
+
+        .footer-inner {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar" aria-label="상단 이동 메뉴">
+        <a class="brand" href="#top" aria-label="첫 화면으로 이동">
+          <img src="../cardnews/assets/jbba-logo.png" alt="전북특별자치도경제통상진흥원" />
+          <span class="brand-line"></span>
+          <span class="brand-label">AI Work Campus</span>
+        </a>
+        <nav class="nav" aria-label="주요 섹션">
+          <a href="#promise">기대효과</a>
+          <a href="#campus">캠퍼스맵</a>
+          <a href="#work">업무별 사례</a>
+          <a class="nav-cta" href="#request">도입 문의</a>
+        </nav>
+      </header>
+
+      <main id="top">
+        <section class="hero" aria-label="전북 AI Work Campus 소개">
+          <div class="wrap">
+            <div class="hero-content">
+              <span class="eyebrow">2026년 7월 5일, 오늘의 60분 특강</span>
+              <h1>AI를<br />업무 옆자리<br />동료로 쓰는 캠퍼스</h1>
+              <p class="hero-lead">
+                전북경제통상진흥원의 공고문, 상담, 수출, 판로, 일자리 업무가
+                AI와 만나는 순간을 하나의 캠퍼스처럼 경험합니다.
+              </p>
+              <div class="hero-actions">
+                <a class="button primary" href="#campus">캠퍼스 둘러보기</a>
+                <a class="button secondary" href="#proof">카드뉴스 보기</a>
+              </div>
+              <div class="hero-metrics" aria-label="강의 핵심 숫자">
+                <div class="metric">
+                  <strong>60분</strong>
+                  <span>실습 부담 없는 교양형 강좌</span>
+                </div>
+                <div class="metric">
+                  <strong>8개</strong>
+                  <span>기관 주요 업무축 반영</span>
+                </div>
+                <div class="metric">
+                  <strong>20+</strong>
+                  <span>보고·상담·홍보 장면</span>
+                </div>
+                <div class="metric">
+                  <strong>3가지</strong>
+                  <span>내일부터 바로 맡길 일</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="next-hint">아래에서 강의 후 달라질 업무 장면을 확인하세요</div>
+        </section>
+
+        <section class="promise-band" id="promise">
+          <div class="wrap">
+            <div class="section-head">
+              <div>
+                <p class="kicker">강의 후 기대효과</p>
+                <h2>직원이 혼자 배운 AI가 아니라, 기관 업무에 남는 AI가 됩니다.</h2>
+              </div>
+              <p class="section-copy">
+                이 특강은 도구 사용법을 길게 설명하지 않습니다. 직원들이 이미
+                하고 있는 반복 업무를 AI가 도와주는 장면으로 바꿔 보여줍니다.
+              </p>
+            </div>
+            <div class="promise-grid">
+              <article class="promise">
+                <span class="num">01</span>
+                <h3>공고문을 더 쉽게 설명합니다</h3>
+                <p>지원조건과 제출서류를 신청자 눈높이 FAQ로 바꿔 상담 부담을 줄입니다.</p>
+              </article>
+              <article class="promise">
+                <span class="num">02</span>
+                <h3>상담 기록이 다음 행동으로 이어집니다</h3>
+                <p>상담메모를 애로, 원인, 지원사업, 추가 질문으로 정리합니다.</p>
+              </article>
+              <article class="promise">
+                <span class="num">03</span>
+                <h3>홍보 문구가 채널별로 살아납니다</h3>
+                <p>제품 설명 하나를 온라인몰, SNS, 공공구매 문구로 바꿉니다.</p>
+              </article>
+              <article class="promise">
+                <span class="num">04</span>
+                <h3>AI를 안전하게 쓰는 기준이 생깁니다</h3>
+                <p>개인정보, 기업비밀, 심사자료를 어떻게 다뤄야 하는지 선을 긋습니다.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="campus-band" id="campus">
+          <div class="wrap">
+            <div class="section-head">
+              <div>
+                <p class="kicker">Campus Map</p>
+                <h2>오늘의 60분은 하나의 업무 캠퍼스를 걷는 흐름입니다.</h2>
+              </div>
+              <p class="section-copy">
+                입구에서는 AI 리터러시를 잡고, 강의동에서는 업무별 활용 장면을
+                확인하고, 안전센터에서는 보안 기준을 정리합니다.
+              </p>
+            </div>
+            <div class="campus-map">
+              <div class="campus-visual" role="img" aria-label="AI 프롬프트 업무 캠퍼스 이미지"></div>
+              <div class="pathway">
+                <article class="station">
+                  <strong>01</strong>
+                  <div>
+                    <h3>메인 게이트: AI를 업무 파트너로 보는 관점</h3>
+                    <p>검색창처럼 쓰는 습관에서 벗어나, 자료를 주고 초안을 받는 방식으로 전환합니다.</p>
+                  </div>
+                </article>
+                <article class="station">
+                  <strong>02</strong>
+                  <div>
+                    <h3>리터러시 홀: 좋은 질문의 공식</h3>
+                    <p>역할, 맥락, 자료, 출력형식, 검토기준을 한 번에 전달하는 법을 배웁니다.</p>
+                  </div>
+                </article>
+                <article class="station">
+                  <strong>03</strong>
+                  <div>
+                    <h3>업무 실무거리: 8개 업무별 AI 활용 장면</h3>
+                    <p>자금, 판로, 수출, 소상공인, 일자리, 사회적경제 업무에 바로 붙입니다.</p>
+                  </div>
+                </article>
+                <article class="station">
+                  <strong>04</strong>
+                  <div>
+                    <h3>프롬프트 스튜디오: 바로 쓰는 문장 7종</h3>
+                    <p>FAQ, 회의록, 상담메모, 보도자료, 성과보고에 맞는 요청 문장을 익힙니다.</p>
+                  </div>
+                </article>
+                <article class="station">
+                  <strong>05</strong>
+                  <div>
+                    <h3>안전센터: 개인정보와 기업비밀 보호</h3>
+                    <p>AI 답변은 초안으로 보고, 원문·날짜·숫자·출처를 확인하는 습관을 남깁니다.</p>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="work-band" id="work">
+          <div class="wrap">
+            <div class="section-head">
+              <div>
+                <p class="kicker">업무별 실무 사례</p>
+                <h2>직원들이 “내 업무에도 바로 쓰겠다”고 느끼는 장면만 골랐습니다.</h2>
+              </div>
+              <p class="section-copy">
+                아래 버튼을 누르면 업무별 대표 장면이 바뀝니다. 실제 강의에서는
+                이 장면들을 중심으로 AI 활용 팁을 짧고 강하게 전달합니다.
+              </p>
+            </div>
+
+            <div class="work-tabs" role="tablist" aria-label="업무별 사례 선택">
+              <button class="tab-button" type="button" role="tab" aria-selected="true" data-case="faq">
+                자금·기업성장
+              </button>
+              <button class="tab-button" type="button" role="tab" aria-selected="false" data-case="export">
+                해외시장개척
+              </button>
+              <button class="tab-button" type="button" role="tab" aria-selected="false" data-case="market">
+                국내판로확대
+              </button>
+              <button class="tab-button" type="button" role="tab" aria-selected="false" data-case="smallbiz">
+                소상공인
+              </button>
+              <button class="tab-button" type="button" role="tab" aria-selected="false" data-case="jobs">
+                일자리
+              </button>
+              <button class="tab-button" type="button" role="tab" aria-selected="false" data-case="hrd">
+                인적자원개발
+              </button>
+            </div>
+
+            <div class="work-stage" aria-live="polite">
+              <div class="work-copy">
+                <h3 id="case-title">공고문은 FAQ로 바꾸면 상담 시간이 줄어듭니다</h3>
+                <p id="case-body">
+                  지원조건, 제출서류, 제외대상을 처음 신청하는 기업 대표도 이해할 수 있게 다시 씁니다.
+                </p>
+                <div class="prompt" id="case-prompt">
+                  공고문 원문을 붙이고 “처음 신청하는 기업 대표용 FAQ 10개로 정리해줘”라고 요청합니다.
+                </div>
+              </div>
+              <figure class="work-image">
+                <img
+                  id="case-image"
+                  src="../cardnews/assets/case-01-faq.png"
+                  alt="공고문을 신청자 FAQ로 바꾸는 업무 장면"
+                />
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <section class="effect-band" id="effect">
+          <div class="wrap">
+            <div class="section-head">
+              <div>
+                <p class="kicker">왜 타 기관도 듣고 싶어질까</p>
+                <h2>이 강의는 AI 유행 설명이 아니라, 기관 업무의 실행 방식을 바꿉니다.</h2>
+              </div>
+              <p class="section-copy">
+                도내 다른 기관도 비슷한 고민을 갖고 있습니다. 공고문은 어렵고,
+                상담은 반복되고, 성과보고는 늦어집니다. 그래서 이 강의는 확장성이 큽니다.
+              </p>
+            </div>
+            <div class="effect-grid">
+              <article class="effect">
+                <span>Impact 01</span>
+                <h3>실무자가 바로 이해합니다</h3>
+                <p>기술 용어보다 공고문, 상담, 회의록, 홍보문구처럼 매일 만나는 업무 언어로 설명합니다.</p>
+              </article>
+              <article class="effect">
+                <span>Impact 02</span>
+                <h3>부서별 적용 지점이 보입니다</h3>
+                <p>기업지원, 수출, 판로, 일자리, 인력양성까지 각 부서가 자기 업무에 붙일 장면을 가져갑니다.</p>
+              </article>
+              <article class="effect">
+                <span>Impact 03</span>
+                <h3>교육 후 산출물로 확장됩니다</h3>
+                <p>공용 프롬프트, 체크리스트, 카드뉴스, 안내문 템플릿으로 이어질 수 있습니다.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="proof-band" id="proof">
+          <div class="wrap">
+            <div class="proof-layout">
+              <div class="proof-gallery" aria-label="카드뉴스 미리보기">
+                <img src="../cardnews/png/card-04.png" alt="자금 기업성장 카드뉴스" />
+                <img src="../cardnews/png/card-07.png" alt="국내판로 확대 카드뉴스" />
+                <img src="../cardnews/png/card-12.png" alt="안전한 AI 활용 카드뉴스" />
+                <img src="../cardnews/png/card-08.png" alt="소상공인 통합지원 카드뉴스" />
+                <img src="../cardnews/png/card-10.png" alt="일자리지원 카드뉴스" />
+                <img src="../cardnews/png/card-13.png" alt="내일부터 AI에게 맡길 일 카드뉴스" />
+              </div>
+              <aside class="proof-copy">
+                <p class="kicker">Prepared Assets</p>
+                <h3>강의 안내용 카드뉴스와 1페이지 리포트까지 이미 준비되어 있습니다.</h3>
+                <p>
+                  랜딩페이지는 오늘 특강을 알리는 입구이고, 카드뉴스와 소개 리포트는
+                  강의 전후로 공유할 수 있는 홍보 자산입니다.
+                </p>
+                <div class="download-row">
+                  <a href="../cardnews/전북경제통상진흥원_AI실무활용_카드뉴스.pptx">카드뉴스 PPTX</a>
+                  <a href="../cardnews/png/card-01.png">카드뉴스 PNG</a>
+                  <a href="../pdf/전북경제통상진흥원_AI실무활용특강_1page_소개리포트.pdf">1Page 리포트</a>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </section>
+
+        <section class="cta-band" id="request">
+          <div class="wrap">
+            <div class="cta-panel">
+              <div>
+                <p class="kicker">For Jeonbuk Institutions</p>
+                <h2>우리 기관에도 이런 AI 캠퍼스가 필요하다고 느끼게 만듭니다.</h2>
+                <p>
+                  오늘 강의는 전북경제통상진흥원의 업무에서 출발하지만, 도내 기관의
+                  보고, 홍보, 민원, 상담, 교육 업무에도 그대로 확장될 수 있습니다.
+                </p>
+                <div class="hero-actions">
+                  <a class="button primary" href="../cardnews/전북경제통상진흥원_AI실무활용_카드뉴스.pptx">
+                    카드뉴스 내려받기
+                  </a>
+                  <a class="button secondary" href="#top">맨 위로 이동</a>
+                </div>
+              </div>
+              <div class="cta-list" aria-label="타 기관 도입 포인트">
+                <div>기관 업무를 먼저 분석하고, 부서별 반복 업무에 맞춰 사례를 바꿉니다.</div>
+                <div>교양형 60분부터 실습형 2시간, 부서별 워크숍까지 확장 가능합니다.</div>
+                <div>교육이 끝난 뒤에도 공용 프롬프트와 안내문 템플릿이 남습니다.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <div class="footer-inner">
+          <span>전북경제통상진흥원 AI 실무 활용 특강 랜딩페이지</span>
+          <span>Built from project assets, 2026.07.05</span>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      const cases = {
+        faq: {
+          title: "공고문은 FAQ로 바꾸면 상담 시간이 줄어듭니다",
+          body: "지원조건, 제출서류, 제외대상을 처음 신청하는 기업 대표도 이해할 수 있게 다시 씁니다.",
+          prompt:
+            "공고문 원문을 붙이고 “처음 신청하는 기업 대표용 FAQ 10개로 정리해줘”라고 요청합니다.",
+          image: "../cardnews/assets/case-01-faq.png",
+          alt: "공고문을 신청자 FAQ로 바꾸는 업무 장면",
+        },
+        export: {
+          title: "번역보다 중요한 것은 바이어가 이해할 문장입니다",
+          body: "제품소개, 후속메일, 전시회 응대를 상대국 담당자가 바로 이해할 표현으로 바꿉니다.",
+          prompt:
+            "제품 설명을 넣고 “해외 바이어에게 보내는 첫 이메일과 제목 3개를 작성해줘”라고 요청합니다.",
+          image: "../cardnews/assets/case-03-export.png",
+          alt: "해외 바이어 이메일을 준비하는 업무 장면",
+        },
+        market: {
+          title: "한 제품 설명을 채널별 문구로 바꿉니다",
+          body: "온라인몰, SNS, 공공구매, 보도자료 문구를 목적에 맞게 분리합니다.",
+          prompt:
+            "상품 특징을 넣고 “온라인몰, SNS, 공공구매 제안문구로 각각 바꿔줘”라고 요청합니다.",
+          image: "../cardnews/assets/case-04-market.png",
+          alt: "제품 설명을 판매채널별 문구로 바꾸는 업무 장면",
+        },
+        smallbiz: {
+          title: "상담메모는 진단카드로 바꾸면 후속 조치가 보입니다",
+          body: "경영 애로, 원인 가설, 지원사업 연결, 추가 질문을 한 장으로 정리합니다.",
+          prompt:
+            "상담 내용을 붙이고 “애로, 원인, 지원사업, 추가 확인 질문으로 나눠줘”라고 요청합니다.",
+          image: "../cardnews/assets/case-05-smallbiz.png",
+          alt: "소상공인 상담 내용을 진단카드로 정리하는 업무 장면",
+        },
+        jobs: {
+          title: "구직상담 전, AI가 질문지를 먼저 만듭니다",
+          body: "상담메모를 바탕으로 적합 직무, 보완 역량, 다음 질문을 표로 정리합니다.",
+          prompt:
+            "구직자 상담메모를 넣고 “추천 직무, 보완 역량, 다음 행동을 표로 정리해줘”라고 요청합니다.",
+          image: "../cardnews/assets/case-07-jobs.png",
+          alt: "일자리 상담을 AI로 정리하는 업무 장면",
+        },
+        hrd: {
+          title: "훈련수요 조사는 교육과정 아이디어로 이어져야 합니다",
+          body: "산업 변화 자료를 직무역량과 커리큘럼 후보로 바꿔 인력양성 기획에 연결합니다.",
+          prompt:
+            "산업동향과 설문요약을 넣고 “필요 역량 5개와 교육과정 아이디어 3개를 제안해줘”라고 요청합니다.",
+          image: "../cardnews/assets/case-08-hrd.png",
+          alt: "훈련수요를 교육과정 아이디어로 바꾸는 업무 장면",
+        },
+      };
+
+      const buttons = document.querySelectorAll(".tab-button");
+      const title = document.querySelector("#case-title");
+      const body = document.querySelector("#case-body");
+      const prompt = document.querySelector("#case-prompt");
+      const image = document.querySelector("#case-image");
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const selected = cases[button.dataset.case];
+          buttons.forEach((item) => item.setAttribute("aria-selected", "false"));
+          button.setAttribute("aria-selected", "true");
+          title.textContent = selected.title;
+          body.textContent = selected.body;
+          prompt.textContent = selected.prompt;
+          image.src = selected.image;
+          image.alt = selected.alt;
+        });
+      });
+    </script>
+  </body>
+</html>
